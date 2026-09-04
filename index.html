@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Tirillas · KROTON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,900;1,9..40,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <h1>KROTON</h1><span>Generador de tirillas · código de barras</span>
+</header>
+<div class="wrap">
+  <div class="card">
+    <h2>1. Elige un producto o escribe el SKU</h2>
+    <div class="grid">
+      <div class="full">
+        <label>Producto guardado</label>
+        <select id="selProducto"><option value="">— Escribir manualmente —</option></select>
+      </div>
+      <div class="full">
+        <label>SKU (esto es lo que lleva el código de barras · se arma solo)</label>
+        <input id="inSku" placeholder="Ej: KRO-CC-XL-BL-02" value="KRO-CC-M-NE-01">
+        <div class="hint">Formato: PRODUCTO-TALLA-COLOR-DISEÑO (ej. KRO-CC-XL-BL-02 = Camiseta corta, XL, Blanca, diseño 2). Puedes editarlo a mano si lo necesitas.</div>
+      </div>
+      <div>
+        <label>Nombre del producto</label>
+        <input id="inNombre" value="Camiseta Corta Feminina">
+      </div>
+      <div>
+        <label>Talla</label>
+        <input id="inTalla" value="M">
+      </div>
+      <div>
+        <label>Color</label>
+        <input id="inColor" value="Negro">
+      </div>
+      <div>
+        <label>Diseño (N°)</label>
+        <input id="inDiseno" type="number" min="1" max="99" value="1">
+      </div>
+      <div>
+        <label>Precio</label>
+        <input id="inPrecio" value="44900" placeholder="Ej: 44900">
+      </div>
+      <div>
+        <label>SKU visible en la tirilla</label>
+        <select id="inSkuVis"><option value="no" selected>No mostrar (recomendado)</option><option value="si">Mostrar</option></select>
+      </div>
+      <div>
+        <label>Copias a imprimir</label>
+        <div class="copias"><input id="inCopias" type="number" min="1" max="60" value="1"><span class="hint">etiquetas por hoja</span></div>
+      </div>
+    </div>
+    <div class="botones">
+      <button class="b-oro" id="btnGen">Generar etiqueta</button>
+      <button class="b-negro" id="btnPng">Descargar PNG</button>
+      <button class="b-line" id="btnPrint">Imprimir</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </div>
+  <div class="card">
+    <h2>2. Vista previa (tirilla 2 × 6 cm · incluye 0,5 cm de sangría)</h2>
+    <div class="preview"><canvas id="labelCanvas" width="420" height="980"></canvas></div>
+  </div>
+</div>
+<div id="printArea"></div>
+
+<script src="js/jsbarcode.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+:root{ --oro:#E0A82E; --negro:#111111; --gris:#666; --orolt:#FBEFCB; }
+*{ box-sizing:border-box; }
+body{ margin:0; font-family:Arial,Helvetica,sans-serif; background:#f4f4f4; color:#222; }
+header{ background:var(--negro); color:var(--oro); padding:16px 24px; display:flex; align-items:center; gap:14px; }
+header h1{ font-size:20px; margin:0; letter-spacing:1px; }
+header span{ color:#fff; font-weight:normal; font-size:13px; }
+.wrap{ max-width:900px; margin:22px auto; padding:0 16px; }
+.card{ background:#fff; border:1px solid #e5e5e5; border-radius:10px; padding:20px; margin-bottom:18px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+.card h2{ font-size:15px; margin:0 0 14px; color:var(--negro); border-left:4px solid var(--oro); padding-left:8px; }
+.grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+label{ font-size:12px; font-weight:bold; color:#444; display:block; margin-bottom:4px; }
+input,select{ width:100%; padding:9px 10px; border:1px solid #ccc; border-radius:6px; font-size:14px; }
+input:focus,select:focus{ outline:2px solid var(--oro); border-color:var(--oro); }
+.full{ grid-column:1 / -1; }
+.botones{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+button{ cursor:pointer; border:none; border-radius:8px; padding:11px 18px; font-size:14px; font-weight:bold; }
+.b-oro{ background:var(--oro); color:var(--negro); }
+.b-negro{ background:var(--negro); color:var(--oro); }
+.b-line{ background:#fff; color:#333; border:1px solid #ccc; }
+button:hover{ filter:brightness(.95); }
+.preview{ display:flex; justify-content:center; padding:18px; background:#fafafa; border-radius:8px; }
+#labelCanvas{ height:460px; max-width:100%; width:auto; border:1px solid #ddd; background:#000; }
+.msg{ color:#9C0006; font-size:13px; margin-top:8px; min-height:16px; }
+.hint{ font-size:12px; color:var(--gris); margin-top:6px; }
+.copias{ display:flex; align-items:center; gap:8px; }
+.copias input{ width:90px; }
+#printArea{ display:none; }
+@media print{
+  body *{ visibility:hidden; }
+  #printArea, #printArea *{ visibility:visible; }
+  #printArea{ display:flex; flex-wrap:wrap; gap:4mm; position:absolute; left:0; top:0; padding:8mm; }
+  #printArea img{ width:30mm; height:70mm; }
+  @page{ margin:8mm; }
+}
